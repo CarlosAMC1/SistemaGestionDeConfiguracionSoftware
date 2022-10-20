@@ -1,7 +1,7 @@
 ﻿
 @{
     Layout = null;
-    SistemaGestionDeConfiguracionSoftware.Models.Base_de_Datos.USUARIO usuario = new SistemaGestionDeConfiguracionSoftware.Models.Base_de_Datos.USUARIO().ObtenerUsuario((SistemaGestionDeConfiguracionSoftware.Models.Extras.SessionHelper.GetUser()));
+    SistemaGestionDeConfiguracionSoftware.Models.ClsUsuario usuario = new SistemaGestionDeConfiguracionSoftware.Models.ClsUsuario().ObtenerUsuario(SistemaGestionDeConfiguracionSoftware.Models.Extras.SessionHelper.GetUser());
 }
 
 <!DOCTYPE html>

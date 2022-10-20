@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Linq;
 using System.Web;
 
 namespace SistemaGestionDeConfiguracionSoftware.Models
 {
+    [Table("USUARIO")]
     public class ClsUsuario
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -54,6 +56,27 @@ namespace SistemaGestionDeConfiguracionSoftware.Models
         public virtual ICollection<ClsProyecto> PROYECTO1 { get; set; }
 
         public virtual ClsTipoUsuario TIPO_USUARIO { get; set; }
+
+        public ClsUsuario ObtenerUsuario(int id)
+        {
+            var usuario = new ClsUsuario();
+
+            try
+            {
+                using (var db = new ClsModeloSGCS())
+                {
+                    usuario = db.USUARIO.Include("TIPO_USUARIO")
+                        .Where(x => x.ID_USUARIO == id)
+                        .SingleOrDefault();
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
+            return usuario;
+        }
 
         public List<ClsUsuario> ListarTodo()
         {
