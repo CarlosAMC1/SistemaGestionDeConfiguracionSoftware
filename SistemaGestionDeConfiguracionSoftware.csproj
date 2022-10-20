@@ -103,19 +103,8 @@
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Models\Bd_Sistema.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Bd_Sistema.Context.cs</LastGenOutput>
-    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <EntityDeploy Include="Models\Bd_Sistema.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Bd_Sistema.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="Models\Bd_Sistema.edmx.diagram">
-      <DependentUpon>Bd_Sistema.edmx</DependentUpon>
-    </None>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -1178,16 +1167,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Bd_Sistema.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Bd_Sistema.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Bd_Sistema.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Bd_Sistema.edmx</DependentUpon>
-    </Compile>
+    <Compile Include="Models\ClsEntregable.cs" />
+    <Compile Include="Models\ClsEtapa.cs" />
+    <Compile Include="Models\ClsMetodologia.cs" />
+    <Compile Include="Models\ClsModeloSGCS.cs" />
+    <Compile Include="Models\ClsProyecto.cs" />
+    <Compile Include="Models\ClsTipoUsuario.cs" />
+    <Compile Include="Models\ClsUsuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

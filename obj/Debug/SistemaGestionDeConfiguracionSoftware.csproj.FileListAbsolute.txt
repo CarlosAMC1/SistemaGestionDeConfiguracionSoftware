@@ -76,3 +76,7 @@ C:\Users\CarlosM\source\repos\SistemaGestionDeConfiguracionSoftware\obj\Debug\Si
 C:\Users\CarlosM\source\repos\SistemaGestionDeConfiguracionSoftware\obj\Debug\SistemaGestionDeConfiguracionSoftware.csproj.CopyComplete
 C:\Users\CarlosM\source\repos\SistemaGestionDeConfiguracionSoftware\obj\Debug\SistemaGestionDeConfiguracionSoftware.dll
 C:\Users\CarlosM\source\repos\SistemaGestionDeConfiguracionSoftware\obj\Debug\SistemaGestionDeConfiguracionSoftware.pdb
+C:\Users\51956\source\repos\SistemaGestionDeConfiguracionSoftware\obj\Debug\SistemaGestionDeConfiguracionSoftware.csproj.AssemblyReference.cache
+C:\Users\51956\source\repos\SistemaGestionDeConfiguracionSoftware\obj\Debug\SistemaGestionDeConfiguracionSoftware.csproj.CoreCompileInputs.cache
+C:\Users\51956\source\repos\SistemaGestionDeConfiguracionSoftware\obj\Debug\SistemaGestionDeConfiguracionSoftware.dll
+C:\Users\51956\source\repos\SistemaGestionDeConfiguracionSoftware\obj\Debug\SistemaGestionDeConfiguracionSoftware.pdb
