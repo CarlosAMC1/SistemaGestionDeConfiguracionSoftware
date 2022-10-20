@@ -103,19 +103,8 @@
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Models\Bd_Sistema.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Bd_Sistema.Context.cs</LastGenOutput>
-    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <EntityDeploy Include="Models\Bd_Sistema.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Bd_Sistema.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="Models\Bd_Sistema.edmx.diagram">
-      <DependentUpon>Bd_Sistema.edmx</DependentUpon>
-    </None>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -1175,20 +1164,14 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\DefaultController.cs" />
+    <Compile Include="Controllers\ProyectoController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
+    <Compile Include="Filtros\AdminFilters.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Bd_Sistema.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Bd_Sistema.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Bd_Sistema.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Bd_Sistema.edmx</DependentUpon>
-    </Compile>
+    <Compile Include="Models\Extras\ResponseModel.cs" />
+    <Compile Include="Models\Extras\SessionHelper.cs" />
     <Compile Include="Models\METODOLOGIA.cs" />
     <Compile Include="Models\Model1.cs" />
     <Compile Include="Models\PROYECTO.cs" />
@@ -1250,13 +1233,14 @@
     <Content Include="Source\plugins\toastr\toastr.js.map" />
     <Content Include="Views\Shared\Layout.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Default\Index.cshtml" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
     <Content Include="Views\Usuario\Index.cshtml" />
     <Content Include="Views\Usuario\Usuario.cshtml" />
     <Content Include="Views\Usuario\Edituser.cshtml" />
+    <Content Include="Views\Proyecto\Index.cshtml" />
+    <Content Include="Views\Proyecto\EditPro.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
