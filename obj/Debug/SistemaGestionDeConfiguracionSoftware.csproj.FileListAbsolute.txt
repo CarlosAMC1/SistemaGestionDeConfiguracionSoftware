@@ -80,3 +80,7 @@ C:\Users\USUARIO\source\repos\SistemaGestionDeConfiguracionSoftware\obj\Debug\Si
 C:\Users\USUARIO\source\repos\SistemaGestionDeConfiguracionSoftware\obj\Debug\SistemaGestionDeConfiguracionSoftware.csproj.CoreCompileInputs.cache
 C:\Users\USUARIO\source\repos\SistemaGestionDeConfiguracionSoftware\obj\Debug\SistemaGestionDeConfiguracionSoftware.dll
 C:\Users\USUARIO\source\repos\SistemaGestionDeConfiguracionSoftware\obj\Debug\SistemaGestionDeConfiguracionSoftware.pdb
+C:\Users\CarlosM\source\repos\SistemaGestionDeConfiguracionSoftware\bin\EntityFramework.dll
+C:\Users\CarlosM\source\repos\SistemaGestionDeConfiguracionSoftware\bin\EntityFramework.SqlServer.dll
+C:\Users\CarlosM\source\repos\SistemaGestionDeConfiguracionSoftware\bin\EntityFramework.xml
+C:\Users\CarlosM\source\repos\SistemaGestionDeConfiguracionSoftware\bin\EntityFramework.SqlServer.xml
