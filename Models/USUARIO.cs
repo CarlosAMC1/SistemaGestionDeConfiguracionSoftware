@@ -4,7 +4,9 @@ namespace SistemaGestionDeConfiguracionSoftware.Models
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
+    using System.Data.Entity;
     using System.Data.Entity.Spatial;
+    using System.Linq;
 
     [Table("USUARIO")]
     public partial class USUARIO
@@ -54,5 +56,165 @@ namespace SistemaGestionDeConfiguracionSoftware.Models
         public virtual ICollection<PROYECTO> PROYECTO1 { get; set; }
 
         public virtual TIPO_USUARIO TIPO_USUARIO { get; set; }
+
+
+        public List<USUARIO> ListarTodo()
+        {
+            var usuarios = new List<USUARIO>();
+
+            try
+            {
+                using (var db = new Model1())
+                {
+                    usuarios = db.USUARIO.Include("TIPO_USUARIO").ToList();
+                }
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+
+            return usuarios;
+        }
+
+        public void Guardar()
+        {
+            this.ESTADO = true;
+            try
+            {
+                using (var db = new Model1())
+                {
+                    if (this.ID_USUARIO > 0)
+                    {
+                        db.Entry(this).State = EntityState.Modified;
+                    }
+                    else
+                    {
+                        DateTime now = DateTime.Now;
+                        this.FECHA_CREACION = Convert.ToDateTime(now.ToString("yyyy/MM/dd hh:mm:ss"));
+                        db.Entry(this).State = EntityState.Added;
+                    }
+                    db.SaveChanges();
+                }
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+        }
+
+        public ResponseModel ValidarLogin(string Codigo, string Contraseña)
+        {
+            var rm = new ResponseModel();
+
+            try
+            {
+                using (var db = new Model1())
+                {
+                    var usuario = db.USUARIO.Where(x => x.CODIGO == Codigo)
+                        .Where(x => x.PASSWORD == Contraseña)
+                        .SingleOrDefault();
+
+                    if (usuario != null)
+                    {
+                        SessionHelper.AddUserToSession(usuario.ID_USUARIO.ToString());
+                        rm.SetResponse(true);
+                    }
+                    else
+                    {
+                        rm.SetResponse(false, "Usuario y/o Password incorrectos");
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
+            return rm;
+        }
+
+        public USUARIO ObtenerUsuario(int id)
+        {
+            var usuario = new USUARIO();
+
+            try
+            {
+                using (var db = new Model1())
+                {
+                    usuario = db.USUARIO.Include("TIPO_USUARIO")
+                        .Where(x => x.ID_USUARIO == id)
+                        .SingleOrDefault();
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
+            return usuario;
+        }
+
+        public void Eliminar()
+        {
+            var usuario = ObtenerUsuario(ID_USUARIO);
+            this.ID_USUARIO = usuario.ID_USUARIO;
+            this.NOMBRE = usuario.NOMBRE;
+            this.APELLIDO = usuario.APELLIDO;
+            this.FECHA_CREACION = usuario.FECHA_CREACION;
+            this.CODIGO = usuario.CODIGO;
+            this.TELEFONO = usuario.TELEFONO;
+            this.EMAIL = usuario.EMAIL;
+            this.PASSWORD = usuario.PASSWORD;
+            this.ID_TIPOUSUARIO = usuario.ID_TIPOUSUARIO;
+            this.ESTADO = false;
+            try
+            {
+                using (var db = new Model1())
+                {
+                    if (this.ID_USUARIO > 0)
+                    {
+                        db.Entry(this).State = EntityState.Modified;
+                    }
+                    db.SaveChanges();
+                }
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+        }
+
+        public void Habilitar()
+        {
+            var usuario = ObtenerUsuario(ID_USUARIO);
+            this.ID_USUARIO = usuario.ID_USUARIO;
+            this.NOMBRE = usuario.NOMBRE;
+            this.APELLIDO = usuario.APELLIDO;
+            this.FECHA_CREACION = usuario.FECHA_CREACION;
+            this.CODIGO = usuario.CODIGO;
+            this.TELEFONO = usuario.TELEFONO;
+            this.EMAIL = usuario.EMAIL;
+            this.PASSWORD = usuario.PASSWORD;
+            this.ID_TIPOUSUARIO = usuario.ID_TIPOUSUARIO;
+            this.ESTADO = true;
+            try
+            {
+                using (var db = new Model1())
+                {
+                    if (this.ID_USUARIO > 0)
+                    {
+                        db.Entry(this).State = EntityState.Modified;
+                    }
+                    db.SaveChanges();
+                }
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+        }
+
+
     }
 }

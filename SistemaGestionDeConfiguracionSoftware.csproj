@@ -1175,6 +1175,7 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\DefaultController.cs" />
+    <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -1188,6 +1189,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Bd_Sistema.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\METODOLOGIA.cs" />
+    <Compile Include="Models\Model1.cs" />
+    <Compile Include="Models\PROYECTO.cs" />
+    <Compile Include="Models\ResponseModel.cs" />
+    <Compile Include="Models\SessionHelper.cs" />
+    <Compile Include="Models\TIPO_USUARIO.cs" />
+    <Compile Include="Models\USUARIO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -1246,6 +1254,9 @@
     <Content Include="Views\Default\Index.cshtml" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+    <Content Include="Views\Usuario\Index.cshtml" />
+    <Content Include="Views\Usuario\Usuario.cshtml" />
+    <Content Include="Views\Usuario\Edituser.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
