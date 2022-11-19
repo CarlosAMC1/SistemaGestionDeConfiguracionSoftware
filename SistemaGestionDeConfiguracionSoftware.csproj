@@ -1164,6 +1164,7 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\DefaultController.cs" />
+    <Compile Include="Controllers\EtapaController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MetodologiaController.cs" />
     <Compile Include="Controllers\ProyectoController.cs" />
@@ -1247,6 +1248,8 @@
     <Content Include="Views\Metodologia\Index.cshtml" />
     <Content Include="Views\Metodologia\EditMet.cshtml" />
     <Content Include="Views\Default\Index.cshtml" />
+    <Content Include="Views\Etapa\Index.cshtml" />
+    <Content Include="Views\Etapa\EditEta.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
