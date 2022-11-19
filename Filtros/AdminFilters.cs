@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 
-using SistemaGestionDeConfiguracionSoftware.Models.Extras;
+using SistemaGestionDeConfiguracionSoftware.Models;
 
 namespace SistemaGestionDeConfiguracionSoftware.Filtros
 {
@@ -41,7 +41,7 @@ namespace SistemaGestionDeConfiguracionSoftware.Filtros
                 {
                     filterContext.Result = new RedirectToRouteResult(new RouteValueDictionary(new
                     {
-                        controller = "Default",
+                        controller = "Usuario",
                         action = "Index"
                     }));
                 }

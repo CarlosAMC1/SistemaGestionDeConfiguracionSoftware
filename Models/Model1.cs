@@ -1,17 +1,19 @@
-using System;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Data.Entity;
-using System.Linq;
-
 namespace SistemaGestionDeConfiguracionSoftware.Models
 {
+    using System;
+    using System.Data.Entity;
+    using System.ComponentModel.DataAnnotations.Schema;
+    using System.Linq;
+
     public partial class Model1 : DbContext
     {
         public Model1()
-            : base("name=Model1")
+            : base("name=Model11")
         {
         }
 
+        public virtual DbSet<ENTREGABLE> ENTREGABLE { get; set; }
+        public virtual DbSet<ETAPA> ETAPA { get; set; }
         public virtual DbSet<METODOLOGIA> METODOLOGIA { get; set; }
         public virtual DbSet<PROYECTO> PROYECTO { get; set; }
         public virtual DbSet<TIPO_USUARIO> TIPO_USUARIO { get; set; }
@@ -19,9 +21,27 @@ namespace SistemaGestionDeConfiguracionSoftware.Models
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<ENTREGABLE>()
+                .Property(e => e.NOMBRE)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<ETAPA>()
+                .Property(e => e.NOMBRE)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<ETAPA>()
+                .HasMany(e => e.ENTREGABLE)
+                .WithRequired(e => e.ETAPA)
+                .WillCascadeOnDelete(false);
+
             modelBuilder.Entity<METODOLOGIA>()
                 .Property(e => e.DESCRIPCION)
                 .IsUnicode(false);
+
+            modelBuilder.Entity<METODOLOGIA>()
+                .HasMany(e => e.ETAPA)
+                .WithRequired(e => e.METODOLOGIA)
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<METODOLOGIA>()
                 .HasMany(e => e.PROYECTO)

@@ -1172,8 +1172,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Extras\ResponseModel.cs" />
-    <Compile Include="Models\Extras\SessionHelper.cs" />
+    <Compile Include="Models\ENTREGABLE.cs" />
+    <Compile Include="Models\ETAPA.cs" />
+    <Compile Include="Models\HashHelper.cs" />
     <Compile Include="Models\METODOLOGIA.cs" />
     <Compile Include="Models\Model1.cs" />
     <Compile Include="Models\PROYECTO.cs" />
@@ -1235,7 +1236,6 @@
     <Content Include="Source\plugins\toastr\toastr.js.map" />
     <Content Include="Views\Shared\Layout.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Default\Index.cshtml" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
     <Content Include="Views\Usuario\Index.cshtml" />
@@ -1246,6 +1246,7 @@
     <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\Metodologia\Index.cshtml" />
     <Content Include="Views\Metodologia\EditMet.cshtml" />
+    <Content Include="Views\Default\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

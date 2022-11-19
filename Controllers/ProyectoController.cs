@@ -5,9 +5,12 @@ using System.Web;
 using System.Web.Mvc;
 
 using SistemaGestionDeConfiguracionSoftware.Models;
+using static SistemaGestionDeConfiguracionSoftware.Filtros.AdminFilters;
+
 namespace SistemaGestionDeConfiguracionSoftware.Controllers
 {
     
+
     public class ProyectoController : Controller
     {
 

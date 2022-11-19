@@ -1,4 +1,5 @@
 ﻿using SistemaGestionDeConfiguracionSoftware.Models;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,11 +27,11 @@ namespace SistemaGestionDeConfiguracionSoftware.Controllers
 
             if (rm.response)
             {
-                rm.href = Url.Content("~/Usuario/Index");
+                rm.href = Url.Content("/Default/Index");
             }
             else if (rm.response)
             {
-                rm.href = Url.Content("~/Login/Index");
+                rm.href = Url.Content("/Login/Index");
             }
             return Json(rm);
         }

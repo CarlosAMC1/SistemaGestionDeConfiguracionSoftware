@@ -41,6 +41,7 @@ namespace SistemaGestionDeConfiguracionSoftware.Models
         public virtual USUARIO USUARIO { get; set; }
 
         public virtual USUARIO USUARIO1 { get; set; }
+
         public List<PROYECTO> ListarTodo()
         {
             var proyecto = new List<PROYECTO>();
