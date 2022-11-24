@@ -1178,7 +1178,6 @@
     <Compile Include="Models\ETAPA.cs" />
     <Compile Include="Models\HashHelper.cs" />
     <Compile Include="Models\METODOLOGIA.cs" />
-    <Compile Include="Models\Model1.cs" />
     <Compile Include="Models\PROYECTO.cs" />
     <Compile Include="Models\ResponseModel.cs" />
     <Compile Include="Models\SessionHelper.cs" />
@@ -1262,6 +1261,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Models\bd\" />
     <Folder Include="Source\Otros\" />
   </ItemGroup>
   <ItemGroup>
