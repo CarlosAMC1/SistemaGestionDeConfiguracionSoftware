@@ -1,0 +1,115 @@
+﻿@model SistemaGestionDeConfiguracionSoftware.Models.PLANTILLAECS
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>PLANTILLAECS</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ECS.DESCRIPCION)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ECS.DESCRIPCION)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ETAPA.DESCRIPCION)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ETAPA.DESCRIPCION)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.METODOLOGIA.DESCRIPCION)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.METODOLOGIA.DESCRIPCION)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MIEMBRO.NOMBRE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MIEMBRO.NOMBRE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ID_PROYECTO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ID_PROYECTO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PORCENTAJE_AVANCE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PORCENTAJE_AVANCE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FECHA_INICIO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FECHA_INICIO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FECHA_FIN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FECHA_FIN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TAREA_FINALIZADA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TAREA_FINALIZADA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TAREA_ENPROCESO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TAREA_ENPROCESO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TAREA_ABIERTA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TAREA_ABIERTA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VERSION_ACTUAL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VERSION_ACTUAL)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID_PLANTILLAECS }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

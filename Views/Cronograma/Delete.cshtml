@@ -1,0 +1,121 @@
+﻿@model SistemaGestionDeConfiguracionSoftware.Models.CRONOGRAMA
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>CRONOGRAMA</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ETAPA.DESCRIPCION)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ETAPA.DESCRIPCION)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.METODOLOGIA.DESCRIPCION)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.METODOLOGIA.DESCRIPCION)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MIEMBRO.NOMBRE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MIEMBRO.NOMBRE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ID_PROYECTO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ID_PROYECTO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PORCENTAJE_AVANCE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PORCENTAJE_AVANCE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FECHA_INICIO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FECHA_INICIO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FECHA_FIN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FECHA_FIN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TAREA_FINALIZADA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TAREA_FINALIZADA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TAREA_ENPROCESO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TAREA_ENPROCESO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TAREA_ABIERTA)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TAREA_ABIERTA)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VERSION_ACTUAL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VERSION_ACTUAL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ECS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ECS)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

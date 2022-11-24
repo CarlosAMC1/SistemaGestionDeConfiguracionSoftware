@@ -57,21 +57,21 @@ namespace SistemaGestionDeConfiguracionSoftware.Controllers
 
         public ActionResult Eliminar(int id)
         {
-            proyecto.ID_PROYECYO = id;
+            proyecto.ID_PROYECTO = id;
             proyecto.Eliminar();
             return Redirect("~/Proyecto/Index");
         }
 
         public ActionResult Habilitar(int id)
         {
-            proyecto.ID_PROYECYO = id;
+            proyecto.ID_PROYECTO = id;
             proyecto.Habilitar();
             return Redirect("~/Proyecto/Index");
         }
 
         public ActionResult Revision(int id)
         {
-            proyecto.ID_PROYECYO = id;
+            proyecto.ID_PROYECTO = id;
             proyecto.Revision();
             return Redirect("~/Proyecto/Index");
         }

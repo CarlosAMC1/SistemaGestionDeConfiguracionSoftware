@@ -1,0 +1,48 @@
+﻿@model IEnumerable<SistemaGestionDeConfiguracionSoftware.Models.ECS>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Agregar ECS", "Create")
+</p>
+<div class="row">
+    <div class="col-sm-6">
+        <div class="card-box table-responsive">
+            <h2 class="header-title m-t-0 m-b-30"><i class="fa fa-book"></i>ECS</h2>
+            <table id="datatable-buttons" class="table table-striped table-bordered">
+                <thead class="bg-custom">
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.DESCRIPCION)
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.DESCRIPCION)
+                            </td>
+                            <td style="vertical-align: middle;" align="center" class="actions">
+
+                                <div class="input-group-btn btn-rounded">
+                                    <button type="button" class="btn btn-rounded waves-effect waves-light btn-success btn-trans" style="overflow: hidden; position: relative;">Acciones</button>
+                                    <button type="button" class="btn btn-rounded waves-effect waves-light btn-success btn-trans dropdown-toggle" data-toggle="dropdown" style="overflow: hidden; position: relative;"><span class="caret"></span></button>
+                                    <ul class="dropdown-menu">
+                                        <li><a id="editar" href="~/ECS/Edit/@item.ID_ECS"><i class="fa fa-pencil text-warning"></i> Editar</a></li>
+                                        <li><a href="~/ECS/Delete/@item.ID_ECS" onclick="return confirm('¿Esta seguro de eliminarla?')"><i class="fa fa-trash-o text-danger"></i> Eliminar</a></li>
+                                    </ul>
+                                </div>
+
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>

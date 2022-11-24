@@ -14,7 +14,8 @@ namespace SistemaGestionDeConfiguracionSoftware.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public METODOLOGIA()
         {
-            ETAPA = new HashSet<ETAPA>();
+            CRONOGRAMA = new HashSet<CRONOGRAMA>();
+            PLANTILLAECS = new HashSet<PLANTILLAECS>();
             PROYECTO = new HashSet<PROYECTO>();
         }
 
@@ -27,10 +28,14 @@ namespace SistemaGestionDeConfiguracionSoftware.Models
         public bool? ESTADO { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ETAPA> ETAPA { get; set; }
+        public virtual ICollection<CRONOGRAMA> CRONOGRAMA { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PLANTILLAECS> PLANTILLAECS { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PROYECTO> PROYECTO { get; set; }
+
         public List<METODOLOGIA> ListarTodo()
         {
             var metodologia = new List<METODOLOGIA>();

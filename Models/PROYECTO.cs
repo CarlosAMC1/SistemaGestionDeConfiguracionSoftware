@@ -11,8 +11,14 @@ namespace SistemaGestionDeConfiguracionSoftware.Models
     [Table("PROYECTO")]
     public partial class PROYECTO
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public PROYECTO()
+        {
+            MIEMBRO = new HashSet<MIEMBRO>();
+        }
+
         [Key]
-        public int ID_PROYECYO { get; set; }
+        public int ID_PROYECTO { get; set; }
 
         [Required]
         [StringLength(50)]
@@ -37,6 +43,9 @@ namespace SistemaGestionDeConfiguracionSoftware.Models
         public DateTime FECHA_FIN { get; set; }
 
         public virtual METODOLOGIA METODOLOGIA { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<MIEMBRO> MIEMBRO { get; set; }
 
         public virtual USUARIO USUARIO { get; set; }
 
@@ -69,7 +78,7 @@ namespace SistemaGestionDeConfiguracionSoftware.Models
             {
                 using (var db = new Model1())
                 {
-                    if (this.ID_PROYECYO > 0)
+                    if (this.ID_PROYECTO > 0)
                     {
                         db.Entry(this).State = EntityState.Modified;
                     }
@@ -95,7 +104,7 @@ namespace SistemaGestionDeConfiguracionSoftware.Models
                 using (var db = new Model1())
                 {
                     proyecto = db.PROYECTO
-                        .Where(x => x.ID_PROYECYO == id)
+                        .Where(x => x.ID_PROYECTO == id)
                         .SingleOrDefault();
                 }
             }
@@ -109,8 +118,8 @@ namespace SistemaGestionDeConfiguracionSoftware.Models
 
         public void Eliminar()
         {
-            var proyecto = ObtenerProyecto(ID_PROYECYO);
-            this.ID_PROYECYO = proyecto.ID_PROYECYO;
+            var proyecto = ObtenerProyecto(ID_PROYECTO);
+            this.ID_PROYECTO = proyecto.ID_PROYECTO;
             this.NOMBRE = proyecto.NOMBRE;
             this.DESCRIPCION = proyecto.DESCRIPCION;
             this.ID_CLIENTE = proyecto.ID_CLIENTE;
@@ -139,8 +148,8 @@ namespace SistemaGestionDeConfiguracionSoftware.Models
 
         public void Habilitar()
         {
-            var proyecto = ObtenerProyecto(ID_PROYECYO);
-            this.ID_PROYECYO = proyecto.ID_PROYECYO;
+            var proyecto = ObtenerProyecto(ID_PROYECTO);
+            this.ID_PROYECTO = proyecto.ID_PROYECTO;
             this.NOMBRE = proyecto.NOMBRE;
             this.DESCRIPCION = proyecto.DESCRIPCION;
             this.ID_CLIENTE = proyecto.ID_CLIENTE;
@@ -169,8 +178,8 @@ namespace SistemaGestionDeConfiguracionSoftware.Models
 
         public void Revision()
         {
-            var proyecto = ObtenerProyecto(ID_PROYECYO);
-            this.ID_PROYECYO = proyecto.ID_PROYECYO;
+            var proyecto = ObtenerProyecto(ID_PROYECTO);
+            this.ID_PROYECTO = proyecto.ID_PROYECTO;
             this.NOMBRE = proyecto.NOMBRE;
             this.DESCRIPCION = proyecto.DESCRIPCION;
             this.ID_CLIENTE = proyecto.ID_CLIENTE;

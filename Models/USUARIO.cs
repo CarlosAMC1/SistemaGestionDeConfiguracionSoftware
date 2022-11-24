@@ -56,6 +56,7 @@ namespace SistemaGestionDeConfiguracionSoftware.Models
         public virtual ICollection<PROYECTO> PROYECTO1 { get; set; }
 
         public virtual TIPO_USUARIO TIPO_USUARIO { get; set; }
+
         public List<USUARIO> ListarTodo()
         {
             var usuarios = new List<USUARIO>();
@@ -109,7 +110,7 @@ namespace SistemaGestionDeConfiguracionSoftware.Models
             {
                 using (var db = new Model1())
                 {
-                  
+
                     var usuario = db.USUARIO.Where(x => x.CODIGO == Codigo)
                         .Where(x => x.PASSWORD == Contraseña)
                         .SingleOrDefault();
@@ -213,6 +214,5 @@ namespace SistemaGestionDeConfiguracionSoftware.Models
                 throw;
             }
         }
-
     }
 }

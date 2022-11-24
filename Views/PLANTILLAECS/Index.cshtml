@@ -1,0 +1,116 @@
+﻿@model IEnumerable<SistemaGestionDeConfiguracionSoftware.Models.PLANTILLAECS>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<div class="row">
+    <div class="col-sm-6">
+        <div class="card-box table-responsive">
+
+            <h2 class="header-title m-t-0 m-b-30"><i class="fa fa-book"></i>PLantillas ECS</h2>
+
+            <table id="datatable-buttons" class="table table-striped table-bordered">
+                <thead class="bg-custom">
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.ECS.DESCRIPCION)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.ETAPA.DESCRIPCION)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.METODOLOGIA.DESCRIPCION)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.MIEMBRO.NOMBRE)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.ID_PROYECTO)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.PORCENTAJE_AVANCE)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.FECHA_INICIO)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.FECHA_FIN)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.TAREA_FINALIZADA)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.TAREA_ENPROCESO)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.TAREA_ABIERTA)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.VERSION_ACTUAL)
+                        </th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ECS.DESCRIPCION)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ETAPA.DESCRIPCION)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.METODOLOGIA.DESCRIPCION)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.MIEMBRO.NOMBRE)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ID_PROYECTO)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.PORCENTAJE_AVANCE)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.FECHA_INICIO)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.FECHA_FIN)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.TAREA_FINALIZADA)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.TAREA_ENPROCESO)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.TAREA_ABIERTA)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.VERSION_ACTUAL)
+                            </td>
+                            <td style="vertical-align: middle;" align="center" class="actions">
+
+                                <div class="input-group-btn btn-rounded">
+                                    <button type="button" class="btn btn-rounded waves-effect waves-light btn-success btn-trans" style="overflow: hidden; position: relative;">Acciones</button>
+                                    <button type="button" class="btn btn-rounded waves-effect waves-light btn-success btn-trans dropdown-toggle" data-toggle="dropdown" style="overflow: hidden; position: relative;"><span class="caret"></span></button>
+                                    <ul class="dropdown-menu">
+                                        <li><a id="editar" href="~/PLANTILLAECS/Edit/@item.ID_PLANTILLAECS"><i class="fa fa-pencil text-warning"></i> Editar</a></li>
+                                        <li><a href="~/PLANTILLAECS/Delete/@item.ID_PLANTILLAECS" onclick="return confirm('¿Esta seguro de eliminarla?')"><i class="fa fa-trash-o text-danger"></i> Eliminar</a></li>
+                                    </ul>
+                                </div>
+
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>

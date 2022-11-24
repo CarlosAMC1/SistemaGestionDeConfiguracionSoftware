@@ -23,6 +23,7 @@ namespace SistemaGestionDeConfiguracionSoftware.Models
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<USUARIO> USUARIO { get; set; }
+
         public List<TIPO_USUARIO> Listar()
         {
             var tipo_usuario = new List<TIPO_USUARIO>();
