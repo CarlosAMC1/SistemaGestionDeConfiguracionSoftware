@@ -43,7 +43,7 @@
                         if (proyecto.ESTADO == true)
                         {
                             <tr>
-                                <td style="vertical-align: middle;">@proyecto.ID_PROYECYO</td>
+                                <td style="vertical-align: middle;">@proyecto.ID_PROYECTO</td>
                                 <td style="vertical-align: middle;">Proyecto @proyecto.NOMBRE</td>
                                 <td style="vertical-align: middle;">@proyecto.DESCRIPCION</td>
                                 <td style="vertical-align: middle;">@proyecto.FECHA_INICIO.ToString().Substring(0, 10)</td>
@@ -57,9 +57,9 @@
                                         <button type="button" class="btn btn-rounded waves-effect waves-light btn-success btn-trans" style="overflow: hidden; position: relative;">Acciones</button>
                                         <button type="button" class="btn btn-rounded waves-effect waves-light btn-success btn-trans dropdown-toggle" data-toggle="dropdown" style="overflow: hidden; position: relative;"><span class="caret"></span></button>
                                         <ul class="dropdown-menu">
-                                            <li><a id="editar" href="~/Proyecto/EditPro/@proyecto.ID_PROYECYO"><i class="fa fa-pencil text-warning"></i> Editar</a></li>
-                                            <li><a href="~/Proyecto/Eliminar/@proyecto.ID_PROYECYO" onclick="return confirm('¿Esta seguro de Cancelarlo?')"><i class="fa fa-trash-o text-danger"></i> Eliminar</a></li>
-                                            <li><a href="~/Proyecto/Revision/@proyecto.ID_PROYECYO" onclick="return confirm('¿Esta seguro de dejarlo en Revision?')"><i class="fa fa-info text-purple"></i> Revision</a></li>
+                                            <li><a id="editar" href="~/Proyecto/EditPro/@proyecto.ID_PROYECTO"><i class="fa fa-pencil text-warning"></i> Editar</a></li>
+                                            <li><a href="~/Proyecto/Eliminar/@proyecto.ID_PROYECTO" onclick="return confirm('¿Esta seguro de Cancelarlo?')"><i class="fa fa-trash-o text-danger"></i> Eliminar</a></li>
+                                            <li><a href="~/Proyecto/Revision/@proyecto.ID_PROYECTO" onclick="return confirm('¿Esta seguro de dejarlo en Revision?')"><i class="fa fa-info text-purple"></i> Revision</a></li>
                                         </ul>
                                     </div>
 
@@ -71,7 +71,7 @@
                         else if (proyecto.ESTADO == false)
                         {
                             <tr>
-                                <td style="vertical-align: middle;" class="text-danger"><i class="ti ti-alert"></i>@proyecto.ID_PROYECYO</td>
+                                <td style="vertical-align: middle;" class="text-danger"><i class="ti ti-alert"></i>@proyecto.ID_PROYECTO</td>
                                 <td style="vertical-align: middle;">Proyecto @proyecto.NOMBRE</td>
                                 <td style="vertical-align: middle;">@proyecto.DESCRIPCION</td>
                                 <td style="vertical-align: middle;">@proyecto.FECHA_INICIO.ToString().Substring(0, 10)</td>
@@ -85,9 +85,9 @@
                                         <button type="button" class="btn btn-rounded waves-effect waves-light btn-success btn-trans" style="overflow: hidden; position: relative;">Acciones</button>
                                         <button type="button" class="btn btn-rounded waves-effect waves-light btn-success btn-trans dropdown-toggle" data-toggle="dropdown" style="overflow: hidden; position: relative;"><span class="caret"></span></button>
                                         <ul class="dropdown-menu">
-                                            <li><a id="editar" href="~/Proyecto/EditPro/@proyecto.ID_PROYECYO"><i class="fa fa-pencil text-warning"></i> Editar</a></li>
-                                            <li><a href="~/Proyecto/Habilitar/@proyecto.ID_PROYECYO" onclick="return confirm('¿Esta seguro de habilitarlo?')"><i class="fa fa-check text-success"></i> Habilitar</a></li>
-                                            <li><a href="~/Proyecto/Revision/@proyecto.ID_PROYECYO" onclick="return confirm('¿Esta seguro de dejarlo en Revision?')"><i class="fa fa-info text-purple"></i> Revision</a></li>
+                                            <li><a id="editar" href="~/Proyecto/EditPro/@proyecto.ID_PROYECTO"><i class="fa fa-pencil text-warning"></i> Editar</a></li>
+                                            <li><a href="~/Proyecto/Habilitar/@proyecto.ID_PROYECTO" onclick="return confirm('¿Esta seguro de habilitarlo?')"><i class="fa fa-check text-success"></i> Habilitar</a></li>
+                                            <li><a href="~/Proyecto/Revision/@proyecto.ID_PROYECTO" onclick="return confirm('¿Esta seguro de dejarlo en Revision?')"><i class="fa fa-info text-purple"></i> Revision</a></li>
                                         </ul>
                                     </div>
 
@@ -98,7 +98,7 @@
                         else if (proyecto.ESTADO == null)
                         {
                             <tr>
-                                <td style="vertical-align: middle;" class="text-warning"><i class="ti ti-alert"></i>@proyecto.ID_PROYECYO</td>
+                                <td style="vertical-align: middle;" class="text-warning"><i class="ti ti-alert"></i>@proyecto.ID_PROYECTO</td>
                                 <td style="vertical-align: middle;">Proyecto @proyecto.NOMBRE</td>
                                 <td style="vertical-align: middle;">@proyecto.DESCRIPCION</td>
                                 <td style="vertical-align: middle;">@proyecto.FECHA_INICIO.ToString().Substring(0, 10)</td>
@@ -112,9 +112,9 @@
                                         <button type="button" class="btn btn-rounded waves-effect waves-light btn-success btn-trans" style="overflow: hidden; position: relative;">Acciones</button>
                                         <button type="button" class="btn btn-rounded waves-effect waves-light btn-success btn-trans dropdown-toggle" data-toggle="dropdown" style="overflow: hidden; position: relative;"><span class="caret"></span></button>
                                         <ul class="dropdown-menu">
-                                            <li><a id="editar" href="~/Proyecto/EditPro/@proyecto.ID_PROYECYO"><i class="fa fa-pencil text-warning"></i> Editar</a></li>
-                                            <li><a href="~/Proyecto/Eliminar/@proyecto.ID_PROYECYO" onclick="return confirm('¿Esta seguro de Cancelarlo?')"><i class="fa fa-trash-o text-danger"></i> Eliminar</a></li>
-                                            <li><a href="~/Proyecto/Habilitar/@proyecto.ID_PROYECYO" onclick="return confirm('¿Esta seguro de habilitarlo?')"><i class="fa fa-check text-success"></i> Habilitar</a></li>
+                                            <li><a id="editar" href="~/Proyecto/EditPro/@proyecto.ID_PROYECTO"><i class="fa fa-pencil text-warning"></i> Editar</a></li>
+                                            <li><a href="~/Proyecto/Eliminar/@proyecto.ID_PROYECTO" onclick="return confirm('¿Esta seguro de Cancelarlo?')"><i class="fa fa-trash-o text-danger"></i> Eliminar</a></li>
+                                            <li><a href="~/Proyecto/Habilitar/@proyecto.ID_PROYECTO" onclick="return confirm('¿Esta seguro de habilitarlo?')"><i class="fa fa-check text-success"></i> Habilitar</a></li>
                                         </ul>
                                     </div>
 
