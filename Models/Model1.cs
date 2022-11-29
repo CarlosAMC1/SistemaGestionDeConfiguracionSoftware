@@ -22,9 +22,17 @@ namespace SistemaGestionDeConfiguracionSoftware.Models
         public virtual DbSet<SOLICITUDCAMBIO> SOLICITUDCAMBIO { get; set; }
         public virtual DbSet<TIPO_USUARIO> TIPO_USUARIO { get; set; }
         public virtual DbSet<USUARIO> USUARIO { get; set; }
+        public virtual DbSet<GRUPO> GRUPO { get; set; }
+
+
+
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<GRUPO>()
+               .Property(e => e.nombre)
+               .IsUnicode(false);
+
             modelBuilder.Entity<CRONOGRAMA>()
                 .Property(e => e.TAREA_FINALIZADA)
                 .IsUnicode(false);
@@ -72,22 +80,7 @@ namespace SistemaGestionDeConfiguracionSoftware.Models
                 .WithRequired(e => e.METODOLOGIA)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<MIEMBRO>()
-                .Property(e => e.NOMBRE)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<MIEMBRO>()
-                .Property(e => e.ROL)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<MIEMBRO>()
-                .Property(e => e.RESPONSABILIDAD)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<MIEMBRO>()
-                .HasMany(e => e.SOLICITUDCAMBIO)
-                .WithRequired(e => e.MIEMBRO)
-                .WillCascadeOnDelete(false);
+            
 
             modelBuilder.Entity<PLANTILLAECS>()
                 .Property(e => e.TAREA_FINALIZADA)

@@ -205,5 +205,24 @@ namespace SistemaGestionDeConfiguracionSoftware.Models
                 throw;
             }
         }
+
+        public List<PROYECTO> Listar()
+
+        {
+            var docente = new List<PROYECTO>();
+            try
+            {
+                using (var db = new Model1())
+                {
+                    docente = db.PROYECTO.ToList();
+                }
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+
+            return docente;
+        }
     }
 }
