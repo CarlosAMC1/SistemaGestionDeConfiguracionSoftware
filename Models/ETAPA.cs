@@ -15,9 +15,11 @@ namespace SistemaGestionDeConfiguracionSoftware.Models
         public ETAPA()
         {
             CRONOGRAMA = new HashSet<CRONOGRAMA>();
+            ECS = new HashSet<ECS>();
             ENTREGABLE = new HashSet<ENTREGABLE>();
             PLANTILLAECS = new HashSet<PLANTILLAECS>();
         }
+
         [Key]
         public int ID_ETAPA { get; set; }
 
@@ -27,22 +29,22 @@ namespace SistemaGestionDeConfiguracionSoftware.Models
 
         public int ID_METODOLOGIA { get; set; }
 
-       
         public bool? ESTADO { get; set; }
 
         [StringLength(50)]
         public string DESCRIPCION { get; set; }
 
-
-
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CRONOGRAMA> CRONOGRAMA { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PLANTILLAECS> PLANTILLAECS { get; set; }
+        public virtual ICollection<ECS> ECS { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ENTREGABLE> ENTREGABLE { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PLANTILLAECS> PLANTILLAECS { get; set; }
 
         public virtual METODOLOGIA METODOLOGIA { get; set; }
 

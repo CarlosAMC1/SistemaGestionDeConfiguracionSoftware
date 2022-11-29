@@ -14,6 +14,7 @@ namespace SistemaGestionDeConfiguracionSoftware.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public PROYECTO()
         {
+            GRUPO = new HashSet<GRUPO>();
             MIEMBRO = new HashSet<MIEMBRO>();
         }
 
@@ -42,6 +43,9 @@ namespace SistemaGestionDeConfiguracionSoftware.Models
         [Column(TypeName = "date")]
         public DateTime FECHA_FIN { get; set; }
 
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<GRUPO> GRUPO { get; set; }
+
         public virtual METODOLOGIA METODOLOGIA { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -50,6 +54,7 @@ namespace SistemaGestionDeConfiguracionSoftware.Models
         public virtual USUARIO USUARIO { get; set; }
 
         public virtual USUARIO USUARIO1 { get; set; }
+
 
         public List<PROYECTO> ListarTodo()
         {

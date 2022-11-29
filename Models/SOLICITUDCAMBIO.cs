@@ -26,7 +26,5 @@ namespace SistemaGestionDeConfiguracionSoftware.Models
         public string TIPO_CAMBIO { get; set; }
 
         public int ID_MIEMBRO { get; set; }
-
-        public virtual MIEMBRO MIEMBRO { get; set; }
     }
 }

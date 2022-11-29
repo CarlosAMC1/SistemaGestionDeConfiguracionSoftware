@@ -14,7 +14,9 @@ namespace SistemaGestionDeConfiguracionSoftware.Models
 
         public virtual DbSet<CRONOGRAMA> CRONOGRAMA { get; set; }
         public virtual DbSet<ECS> ECS { get; set; }
+        public virtual DbSet<ENTREGABLE> ENTREGABLE { get; set; }
         public virtual DbSet<ETAPA> ETAPA { get; set; }
+        public virtual DbSet<GRUPO> GRUPO { get; set; }
         public virtual DbSet<METODOLOGIA> METODOLOGIA { get; set; }
         public virtual DbSet<MIEMBRO> MIEMBRO { get; set; }
         public virtual DbSet<PLANTILLAECS> PLANTILLAECS { get; set; }
@@ -22,17 +24,10 @@ namespace SistemaGestionDeConfiguracionSoftware.Models
         public virtual DbSet<SOLICITUDCAMBIO> SOLICITUDCAMBIO { get; set; }
         public virtual DbSet<TIPO_USUARIO> TIPO_USUARIO { get; set; }
         public virtual DbSet<USUARIO> USUARIO { get; set; }
-        public virtual DbSet<GRUPO> GRUPO { get; set; }
-
-
-
+        public virtual DbSet<TAREA> TAREA { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<GRUPO>()
-               .Property(e => e.nombre)
-               .IsUnicode(false);
-
             modelBuilder.Entity<CRONOGRAMA>()
                 .Property(e => e.TAREA_FINALIZADA)
                 .IsUnicode(false);
@@ -57,9 +52,17 @@ namespace SistemaGestionDeConfiguracionSoftware.Models
                 .Property(e => e.DESCRIPCION)
                 .IsUnicode(false);
 
+            modelBuilder.Entity<ENTREGABLE>()
+                .Property(e => e.NOMBRE)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<ETAPA>()
+                .Property(e => e.NOMBRE)
+                .IsUnicode(false);
+
             modelBuilder.Entity<ETAPA>()
                 .Property(e => e.DESCRIPCION)
-                .IsUnicode(false);
+                .IsFixedLength();
 
             modelBuilder.Entity<ETAPA>()
                 .HasMany(e => e.CRONOGRAMA)
@@ -67,20 +70,42 @@ namespace SistemaGestionDeConfiguracionSoftware.Models
                 .HasForeignKey(e => e.ID_FASE);
 
             modelBuilder.Entity<ETAPA>()
+                .HasMany(e => e.ECS)
+                .WithOptional(e => e.ETAPA)
+                .HasForeignKey(e => e.ID_FASE);
+
+            modelBuilder.Entity<ETAPA>()
+                .HasMany(e => e.ENTREGABLE)
+                .WithRequired(e => e.ETAPA)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<ETAPA>()
                 .HasMany(e => e.PLANTILLAECS)
                 .WithOptional(e => e.ETAPA)
                 .HasForeignKey(e => e.ID_FASE);
+
+            modelBuilder.Entity<GRUPO>()
+                .Property(e => e.nombre)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<GRUPO>()
+                .HasMany(e => e.MIEMBRO)
+                .WithRequired(e => e.GRUPO)
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<METODOLOGIA>()
                 .Property(e => e.DESCRIPCION)
                 .IsUnicode(false);
 
             modelBuilder.Entity<METODOLOGIA>()
-                .HasMany(e => e.PROYECTO)
+                .HasMany(e => e.ETAPA)
                 .WithRequired(e => e.METODOLOGIA)
                 .WillCascadeOnDelete(false);
 
-            
+            modelBuilder.Entity<METODOLOGIA>()
+                .HasMany(e => e.PROYECTO)
+                .WithRequired(e => e.METODOLOGIA)
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<PLANTILLAECS>()
                 .Property(e => e.TAREA_FINALIZADA)
@@ -106,6 +131,16 @@ namespace SistemaGestionDeConfiguracionSoftware.Models
                 .Property(e => e.DESCRIPCION)
                 .IsUnicode(false);
 
+            modelBuilder.Entity<PROYECTO>()
+                .HasMany(e => e.GRUPO)
+                .WithRequired(e => e.PROYECTO)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<PROYECTO>()
+                .HasMany(e => e.MIEMBRO)
+                .WithRequired(e => e.PROYECTO)
+                .WillCascadeOnDelete(false);
+
             modelBuilder.Entity<SOLICITUDCAMBIO>()
                 .Property(e => e.DESCRIPCION)
                 .IsUnicode(false);
@@ -117,6 +152,11 @@ namespace SistemaGestionDeConfiguracionSoftware.Models
             modelBuilder.Entity<TIPO_USUARIO>()
                 .Property(e => e.DESCRIPCION)
                 .IsUnicode(false);
+
+            modelBuilder.Entity<TIPO_USUARIO>()
+                .HasMany(e => e.MIEMBRO)
+                .WithRequired(e => e.TIPO_USUARIO)
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<TIPO_USUARIO>()
                 .HasMany(e => e.USUARIO)
@@ -148,6 +188,11 @@ namespace SistemaGestionDeConfiguracionSoftware.Models
                 .IsUnicode(false);
 
             modelBuilder.Entity<USUARIO>()
+                .HasMany(e => e.MIEMBRO)
+                .WithRequired(e => e.USUARIO)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<USUARIO>()
                 .HasMany(e => e.PROYECTO)
                 .WithRequired(e => e.USUARIO)
                 .HasForeignKey(e => e.ID_JEFEPROYECTO)
@@ -158,6 +203,18 @@ namespace SistemaGestionDeConfiguracionSoftware.Models
                 .WithRequired(e => e.USUARIO1)
                 .HasForeignKey(e => e.ID_CLIENTE)
                 .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<TAREA>()
+                .Property(e => e.NOMBRE)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<TAREA>()
+                .Property(e => e.JUSTIFICACION)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<TAREA>()
+                .Property(e => e.CODIGO)
+                .IsUnicode(false);
         }
     }
 }

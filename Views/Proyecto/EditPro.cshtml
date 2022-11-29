@@ -12,7 +12,7 @@
     @using (Html.BeginForm("Guardar", "Proyecto", FormMethod.Post, new { id = "frm-proyecto" }))
     {
         string p = "";
-        @Html.HiddenFor(x => Model.ID_PROYECYO)
+        @Html.HiddenFor(x => Model.ID_PROYECTO)
         @Html.HiddenFor(x => Model.ESTADO)
 
         if (Model.ESTADO == true)

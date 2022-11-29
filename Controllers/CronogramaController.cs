@@ -17,7 +17,7 @@ namespace SistemaGestionDeConfiguracionSoftware.Controllers
         // GET: Cronograma
         public ActionResult Index()
         {
-            var cRONOGRAMA = db.CRONOGRAMA.Include(c => c.ETAPA).Include(c => c.METODOLOGIA).Include(c => c.MIEMBRO);
+            var cRONOGRAMA = db.CRONOGRAMA.Include(c => c.ETAPA).Include(c => c.METODOLOGIA);
             return View(cRONOGRAMA.ToList());
         }
 
@@ -39,9 +39,8 @@ namespace SistemaGestionDeConfiguracionSoftware.Controllers
         // GET: Cronograma/Create
         public ActionResult Create()
         {
-            ViewBag.ID_FASE = new SelectList(db.ETAPA, "ID_ETAPA", "DESCRIPCION");
+            ViewBag.ID_FASE = new SelectList(db.ETAPA, "ID_ETAPA", "NOMBRE");
             ViewBag.ID_METODOLOGIA = new SelectList(db.METODOLOGIA, "ID_METODOLOGIA", "DESCRIPCION");
-            ViewBag.ID_MIEMBRO = new SelectList(db.MIEMBRO, "ID_MIEMBRO", "NOMBRE");
             return View();
         }
 
@@ -59,9 +58,8 @@ namespace SistemaGestionDeConfiguracionSoftware.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.ID_FASE = new SelectList(db.ETAPA, "ID_ETAPA", "DESCRIPCION", cRONOGRAMA.ID_FASE);
+            ViewBag.ID_FASE = new SelectList(db.ETAPA, "ID_ETAPA", "NOMBRE", cRONOGRAMA.ID_FASE);
             ViewBag.ID_METODOLOGIA = new SelectList(db.METODOLOGIA, "ID_METODOLOGIA", "DESCRIPCION", cRONOGRAMA.ID_METODOLOGIA);
-            ViewBag.ID_MIEMBRO = new SelectList(db.MIEMBRO, "ID_MIEMBRO", "NOMBRE", cRONOGRAMA.ID_MIEMBRO);
             return View(cRONOGRAMA);
         }
 
@@ -77,9 +75,8 @@ namespace SistemaGestionDeConfiguracionSoftware.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.ID_FASE = new SelectList(db.ETAPA, "ID_ETAPA", "DESCRIPCION", cRONOGRAMA.ID_FASE);
+            ViewBag.ID_FASE = new SelectList(db.ETAPA, "ID_ETAPA", "NOMBRE", cRONOGRAMA.ID_FASE);
             ViewBag.ID_METODOLOGIA = new SelectList(db.METODOLOGIA, "ID_METODOLOGIA", "DESCRIPCION", cRONOGRAMA.ID_METODOLOGIA);
-            ViewBag.ID_MIEMBRO = new SelectList(db.MIEMBRO, "ID_MIEMBRO", "NOMBRE", cRONOGRAMA.ID_MIEMBRO);
             return View(cRONOGRAMA);
         }
 
@@ -96,9 +93,8 @@ namespace SistemaGestionDeConfiguracionSoftware.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.ID_FASE = new SelectList(db.ETAPA, "ID_ETAPA", "DESCRIPCION", cRONOGRAMA.ID_FASE);
+            ViewBag.ID_FASE = new SelectList(db.ETAPA, "ID_ETAPA", "NOMBRE", cRONOGRAMA.ID_FASE);
             ViewBag.ID_METODOLOGIA = new SelectList(db.METODOLOGIA, "ID_METODOLOGIA", "DESCRIPCION", cRONOGRAMA.ID_METODOLOGIA);
-            ViewBag.ID_MIEMBRO = new SelectList(db.MIEMBRO, "ID_MIEMBRO", "NOMBRE", cRONOGRAMA.ID_MIEMBRO);
             return View(cRONOGRAMA);
         }
 

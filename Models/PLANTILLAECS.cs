@@ -46,7 +46,5 @@ namespace SistemaGestionDeConfiguracionSoftware.Models
         public virtual ETAPA ETAPA { get; set; }
 
         public virtual METODOLOGIA METODOLOGIA { get; set; }
-
-        public virtual MIEMBRO MIEMBRO { get; set; }
     }
 }

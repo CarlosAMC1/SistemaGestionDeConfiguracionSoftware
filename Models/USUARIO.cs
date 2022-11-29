@@ -14,6 +14,7 @@ namespace SistemaGestionDeConfiguracionSoftware.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public USUARIO()
         {
+            MIEMBRO = new HashSet<MIEMBRO>();
             PROYECTO = new HashSet<PROYECTO>();
             PROYECTO1 = new HashSet<PROYECTO>();
         }
@@ -48,6 +49,9 @@ namespace SistemaGestionDeConfiguracionSoftware.Models
         public int ID_TIPOUSUARIO { get; set; }
 
         public bool? ESTADO { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<MIEMBRO> MIEMBRO { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PROYECTO> PROYECTO { get; set; }
@@ -214,5 +218,6 @@ namespace SistemaGestionDeConfiguracionSoftware.Models
                 throw;
             }
         }
+
     }
 }

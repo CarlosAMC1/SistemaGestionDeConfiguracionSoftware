@@ -15,6 +15,7 @@ namespace SistemaGestionDeConfiguracionSoftware.Models
         public METODOLOGIA()
         {
             CRONOGRAMA = new HashSet<CRONOGRAMA>();
+            ETAPA = new HashSet<ETAPA>();
             PLANTILLAECS = new HashSet<PLANTILLAECS>();
             PROYECTO = new HashSet<PROYECTO>();
         }
@@ -31,10 +32,14 @@ namespace SistemaGestionDeConfiguracionSoftware.Models
         public virtual ICollection<CRONOGRAMA> CRONOGRAMA { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ETAPA> ETAPA { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PLANTILLAECS> PLANTILLAECS { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PROYECTO> PROYECTO { get; set; }
+
 
         public List<METODOLOGIA> ListarTodo()
         {
@@ -144,5 +149,6 @@ namespace SistemaGestionDeConfiguracionSoftware.Models
                 throw;
             }
         }
+
     }
 }

@@ -1,240 +1,67 @@
-﻿@model List<SistemaGestionDeConfiguracionSoftware.Models.MIEMBRO>
+﻿@model IEnumerable<SistemaGestionDeConfiguracionSoftware.Models.MIEMBRO>
+
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/Layout.cshtml";
-    List<SistemaGestionDeConfiguracionSoftware.Models.GRUPO> grupo = ViewBag.Grupo;
-    List<SistemaGestionDeConfiguracionSoftware.Models.USUARIO> usuario = ViewBag.Usuario;
-    List<SistemaGestionDeConfiguracionSoftware.Models.PROYECTO> proyecto = ViewBag.Proyecto;
-    List<SistemaGestionDeConfiguracionSoftware.Models.TIPO_USUARIO> TipoUsuario = ViewBag.TipoUsuario;
-    int i = 0;
 }
 
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
 <div class="row">
     <div class="col-sm-6">
-        <div class="m-b-30">
-            <a data-toggle="modal" data-target="#modal-Agregar-Miembro" class="btn btn-rounded btn-custom waves-effect waves-light"><i class="fa fa-plus"></i> Agregar Proyecto nuevo</a>
-        </div>
-    </div>
-</div>
-
-<!--Row de listado de los datos-->
-<div class="row">
-    <div class="col-sm-12">
         <div class="card-box table-responsive">
 
-            <h2 class="header-title m-t-0 m-b-30"><i class="fa fa-book"></i> Lista de Equipos en el Sistema</h2>
+            <h2 class="header-title m-t-0 m-b-30"><i class="fa fa-book"></i>Miembros</h2>
 
             <table id="datatable-buttons" class="table table-striped table-bordered">
                 <thead class="bg-custom">
                     <tr>
-                        <th class="text-white">ID</th>
-                        <th class="text-white">Grupo</th>
-                        <th class="text-white">Usuario</th>
-                        <th class="text-white">Tipo Usuario</th>
-                        <th class="text-white">Proyecto Encargado</th>
-                        <th class="text-white">Acciones</th>
+                        <th>
+                            @Html.DisplayName("PROYECTO")
+                        </th>
+                        <th>
+                            @Html.DisplayName("NOMBRE MIEMBRO")
+                        </th>
+                        <th>
+                            @Html.DisplayName("ROL")
+                        </th>
+                        <th>
+                            @Html.DisplayName("RESPONSABILIDAD")
+                        </th>
+                        <th></th>
                     </tr>
-                </thead>
 
-                <tbody>
-                    @foreach (var miembro in Model)
+                    @foreach (var item in Model)
                     {
-                            <tr>
-                                <td style="vertical-align: middle;">@miembro.ID_MIEMBRO</td>
-                                <td style="vertical-align: middle;">@miembro.GRUPO.nombre</td>
-                                <td style="vertical-align: middle;">@miembro.USUARIO.NOMBRE</td>
-                                <td style="vertical-align: middle;">@miembro.TIPO_USUARIO.DESCRIPCION</td>
-                                <td style="vertical-align: middle;">@miembro.PROYECTO.DESCRIPCION</td>
-                                <td style="vertical-align: middle;" align="center" class="actions">
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.PROYECTO.NOMBRE)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.NOMBRE)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ROL)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.RESPONSABILIDAD)
+                            </td>
+                            <td style="vertical-align: middle;" align="center" class="actions">
 
-                                    <div class="input-group-btn btn-rounded">
-                                        <button type="button" class="btn btn-rounded waves-effect waves-light btn-success btn-trans" style="overflow: hidden; position: relative;">Acciones</button>
-                                        <button type="button" class="btn btn-rounded waves-effect waves-light btn-success btn-trans dropdown-toggle" data-toggle="dropdown" style="overflow: hidden; position: relative;"><span class="caret"></span></button>
-                                        <ul class="dropdown-menu">
-                                            <li><a id="editar" href="~/Miembro/EditPro/@miembro.ID_MIEMBRO"><i class="fa fa-pencil text-warning"></i> Editar</a></li>
-                                            <li><a href="~/Miembro/Eliminar/@miembro.ID_MIEMBRO" onclick="return confirm('¿Esta seguro de Eliminar?')"><i class="fa fa-trash-o text-danger"></i> Eliminar</a></li>
-                                        </ul>
-                                    </div>
+                                <div class="input-group-btn btn-rounded">
+                                    <button type="button" class="btn btn-rounded waves-effect waves-light btn-success btn-trans" style="overflow: hidden; position: relative;">Acciones</button>
+                                    <button type="button" class="btn btn-rounded waves-effect waves-light btn-success btn-trans dropdown-toggle" data-toggle="dropdown" style="overflow: hidden; position: relative;"><span class="caret"></span></button>
+                                    <ul class="dropdown-menu">
+                                        <li><a id="editar" href="~/Miembro/Edit/@item.ID_MIEMBRO"><i class="fa fa-pencil text-warning"></i> Editar</a></li>
+                                        <li><a href="~/Miembro/Delete/@item.ID_MIEMBRO" onclick="return confirm('¿Esta seguro de eliminarla?')"><i class="fa fa-trash-o text-danger"></i> Eliminar</a></li>
+                                    </ul>
+                                </div>
 
-                                </td>
-                            </tr>
+                            </td>
+                        </tr>
                     }
-                </tbody>
+
             </table>
-        </div>
-    </div>
-</div>
-
-
-<!-- Modal para agregar el proyecto -->
-<div id="modal-Agregar-Miembro" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-    <div class="modal-dialog">
-        <div class="modal-content" style="border-radius: 15px;">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h4 class="modal-title">Datos del Equipo</h4>
-            </div>
-
-            @using (Html.BeginForm("Guardar", "Miembro", FormMethod.Post, new { id = "frm-proyecto" }))
-            {
-
-                <div class="modal-body">
-                        <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                @Html.Label("EQUIPO", new { @class = "control-label" })
-                                <select name="ID_GRUPO" id="ID_GRUPO" class="form-control">
-                                    @foreach (var metodo in grupo)
-                                    {
-                                        if (i == 0)
-                                        {
-                                            <option selected value="@metodo.ID_GRUPO"> @metodo.nombre</option>
-                                            i++;
-                                        }
-                                        else
-                                        {
-                                            <option value="@metodo.ID_GRUPO"> @metodo.nombre</option>
-                                        }
-                                    }
-                                    @(i == 0)
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    @Html.Label("MIEMBRO", new { @class = "control-label" })
-                                    <select name="ID_USUARIO" id="ID_USUARIO" class="form-control">
-                                        @foreach (var user in usuario)
-                                        {
-                                            if (user.ID_USUARIO != 0)
-                                            {
-                                                if (i == 0)
-                                                {
-                                                    <option selected value="@user.ID_USUARIO">@user.NOMBRE</option>
-                                                    i++;
-                                                }
-                                                else
-                                                {
-                                                    <option value="@user.ID_USUARIO">@user.NOMBRE</option>
-                                                }
-                                            }
-                                        }
-                                        @(i == 0)
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    @Html.Label("ROL ", new { @class = "control-label" })
-                                    <select name="ID_JEFEPROYECTO" id="ID_JEFEPROYECTO" class="form-control">
-                                        @foreach (var user in TipoUsuario)
-                                        {
-                                            if (user.ID_TIPOUSUARIO != 0)
-                                            {
-                                                if (i == 0)
-                                                {
-                                                    <option selected value="@user.ID_TIPOUSUARIO">@user.DESCRIPCION</option>
-                                                    i++;
-                                                }
-                                                else
-                                                {
-                                                    <option value="@user.ID_TIPOUSUARIO">@user.DESCRIPCION</option>
-                                                }
-                                            }
-                                        }
-                                        @(i == 0)
-                                    </select>
-                                </div>
-                            </div>
-
-
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    @Html.Label("PROYECTO", new { @class = "control-label" })
-                                    <select name="ID_JEFEPROYECTO" id="ID_JEFEPROYECTO" class="form-control">
-                                        @foreach (var proyectos in proyecto)
-                                        {
-                                            if (proyectos.ID_PROYECTO != 0)
-                                            {
-                                                if (i == 0)
-                                                {
-                                                    <option selected value="@proyectos.ID_PROYECTO">@proyectos.DESCRIPCION</option>
-                                                    i++;
-                                                }
-                                                else
-                                                {
-                                                    <option value="@proyectos.ID_PROYECTO">@proyectos.DESCRIPCION</option>
-                                                }
-                                            }
-                                        }
-                                        @(i == 0)
-                                    </select>
-                                </div>
-                            </div>
-
-                        </div>
-
-
-                </div>
-
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-rounded btn-default waves-effect" data-dismiss="modal">Cerrar</button>
-                    <button type="submit" class="btn btn-rounded btn-custom waves-effect waves-light">Agregar</button>
-                </div>
-            }
-
-        </div>
-    </div>
-</div>
-
-<!-- jQuery  -->
-<script src="~/Source/js/jquery.min.js"></script>
-
-<!-- Plugins Js para los calendarios -->
-<script src="~/Source/plugins/switchery/switchery.min.js"></script>
-<script src="~/Source/plugins/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js"></script>
-<script type="text/javascript" src="~/Source/plugins/multiselect/js/jquery.multi-select.js"></script>
-<script type="text/javascript" src="~/Source/plugins/jquery-quicksearch/jquery.quicksearch.js"></script>
-<script src="~/Source/plugins/select2/dist/js/select2.min.js" type="text/javascript"></script>
-<script src="~/Source/plugins/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js" type="text/javascript"></script>
-<script src="~/Source/plugins/bootstrap-inputmask/bootstrap-inputmask.min.js" type="text/javascript"></script>
-<script src="~/Source/plugins/moment/moment.js"></script>
-<script src="~/Source/plugins/timepicker/bootstrap-timepicker.min.js"></script>
-<script src="~/Source/plugins/mjolnic-bootstrap-colorpicker/dist/js/bootstrap-colorpicker.min.js"></script>
-<script src="~/Source/DatePicker/bootstrap-datepicker/dist/js/bootstrap-datepicker.js"></script>
-<script src="~/Source/DatePicker/bootstrap-daterangepicker/daterangepicker.js"></script>
-<script src="~/Source/plugins/bootstrap-maxlength/bootstrap-maxlength.min.js" type="text/javascript"></script>
-
-<script>
-
-    //Date range picker
-
-    jQuery('#date-range').datepicker({
-        toggleActive: true
-    });
-
-    $('.input-daterange-datepicker').daterangepicker({
-        buttonClasses: ['btn', 'btn-sm'],
-        applyClass: 'btn-default',
-        cancelClass: 'btn-primary'
-    });
-    $('.input-daterange-timepicker').daterangepicker({
-        timePicker: false,
-        format: 'DD/MM/YYYY hh:mm:ss',
-        timePickerIncrement: 30,
-        timePicker12Hour: true,
-        timePickerSeconds: false,
-        buttonClasses: ['btn', 'btn-sm'],
-        applyClass: 'btn-default',
-        cancelClass: 'btn-primary'
-    });
-</script>
-
-
-
-
-
-

@@ -20,7 +20,11 @@ namespace SistemaGestionDeConfiguracionSoftware.Models
         [StringLength(50)]
         public string DESCRIPCION { get; set; }
 
+        public int? ID_FASE { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PLANTILLAECS> PLANTILLAECS { get; set; }
+
+        public virtual ETAPA ETAPA { get; set; }
     }
 }
