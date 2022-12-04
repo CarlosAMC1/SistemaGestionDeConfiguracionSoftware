@@ -1,0 +1,42 @@
+﻿@model List<SistemaGestionDeConfiguracionSoftware.Models.GRUPO>
+@{ ViewBag.Title = "Index";
+                Layout = "~/Views/Shared/Layout.cshtml"; 
+ }
+<div class="text-lg-start">
+    <a href="~/Grupo/AgregarEditar/" class="btn btn-secondary text-start">Agregar Usuario</a>
+</div>
+
+
+<table id="datatable-buttons" class="table table-striped table-bordered">
+    <thead class="bg-custom">
+        <tr>
+            <th class="text-white">ID</th>
+            <th class="text-white">Nombre</th>
+            <th class="text-white">Proyecto</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        @foreach (var m in Model)
+        {
+<tr>
+    <td style="vertical-align: middle;">@(m.ID_GRUPO)</td>
+    <td style="vertical-align: middle;">@(m.nombre)</td>
+    <td style="vertical-align: middle;">@(m.PROYECTO.NOMBRE)</td>
+
+    <td style="vertical-align: middle;" align="center" class="actions">
+
+        <div class="input-group-btn btn-rounded">
+            <button type="button" class="btn btn-rounded waves-effect waves-light btn-success btn-trans" style="overflow: hidden; position: relative;">Acciones</button>
+            <button type="button" class="btn btn-rounded waves-effect waves-light btn-success btn-trans dropdown-toggle" data-toggle="dropdown" style="overflow: hidden; position: relative;"><span class="caret"></span></button>
+            <ul class="dropdown-menu">
+                <li><a id="editar" href="~/Grupo/AgregarEditar/@m.ID_GRUPO"><i class="fa fa-pencil text-warning"></i> Editar</a></li>
+                <li><a href="~/Grupo/Eliminar/@m.ID_GRUPO" onclick="return confirm('¿Esta seguro de Eliminar?')"><i class="fa fa-trash-o text-danger"></i> Eliminar</a></li>
+            </ul>
+        </div>
+    </td>
+</tr>}
+    </tbody>
+</table>
+

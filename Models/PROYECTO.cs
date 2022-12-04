@@ -76,7 +76,25 @@ namespace SistemaGestionDeConfiguracionSoftware.Models
 
             return proyecto;
         }
+        public List<PROYECTO> Listar1()
+        {
+            var proyecto = new List<PROYECTO>();
 
+            try
+            {
+                using (var db = new Model1())
+                {
+                    proyecto = db.PROYECTO
+                        .ToList();
+                }
+            }
+            catch (Exception e)
+            {
+                throw;
+            }
+
+            return proyecto;
+        }
         public void Guardar()
         {
             try

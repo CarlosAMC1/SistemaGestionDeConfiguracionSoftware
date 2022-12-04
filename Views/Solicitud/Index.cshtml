@@ -1,0 +1,53 @@
+﻿@model List<SistemaGestionDeConfiguracionSoftware.Models.SOLICITUDCAMBIO>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Solicitud</h2>
+<h2 class="pagegeader">
+    <a href="~/Solicitud/Agregar" class="btn btn-info text-right">Nuevo Registro</a>
+
+</h2>
+<br />
+<br />
+@using (Html.BeginForm("Index", "Solicitud", FormMethod.Post))
+{
+
+}
+
+<table id="datatable" class="display" style="width:100%">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Fecha inicio </th>
+            <th>Fecha Fin</th>
+            <th>Proyecto</th>
+            <th>Descripccion</th>
+            <th>Responsable</th>
+
+
+
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var m in Model)
+        {
+        <tr>
+            <td>@(m.ID_SOLICITUD)</td>
+            <td>@(m.FECHA_INICIO)</td>
+            <td>@(m.FECHA_FIN)</td>
+            <td>@(m.ID_Proyecto)</td>
+            <td>@(m.DESCRIPCION)</td>
+            <td>@(m.ID_MIEMBRO)</td>
+
+
+            <td>
+
+                <a href="~/Solicitud/Agregar/@m.ID_SOLICITUD" class="btn btn-success">Editar</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+    <p></p>
+</table>

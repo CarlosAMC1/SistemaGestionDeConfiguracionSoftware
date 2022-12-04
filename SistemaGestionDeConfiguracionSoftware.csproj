@@ -1169,11 +1169,13 @@
     <Compile Include="Controllers\ECSController.cs" />
     <Compile Include="Controllers\EntregableController.cs" />
     <Compile Include="Controllers\EtapaController.cs" />
+    <Compile Include="Controllers\Grupo1Controller.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MetodologiaController.cs" />
     <Compile Include="Controllers\MiembroController.cs" />
     <Compile Include="Controllers\PROYECTO2Controller.cs" />
     <Compile Include="Controllers\ProyectoController.cs" />
+    <Compile Include="Controllers\SolicitudController.cs" />
     <Compile Include="Controllers\TAREAsController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Filtros\AdminFilters.cs" />
@@ -1302,6 +1304,10 @@
     <Content Include="Views\Cronograma\Details.cshtml" />
     <Content Include="Views\Cronograma\Edit.cshtml" />
     <Content Include="Views\Cronograma\Index.cshtml" />
+    <Content Include="Views\Grupo1\Index.cshtml" />
+    <Content Include="Views\Grupo1\AgregarEditar.cshtml" />
+    <Content Include="Views\Solicitud\Index.cshtml" />
+    <Content Include="Views\Solicitud\Agregar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

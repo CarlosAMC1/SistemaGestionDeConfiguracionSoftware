@@ -145,9 +145,6 @@ namespace SistemaGestionDeConfiguracionSoftware.Models
                 .Property(e => e.DESCRIPCION)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<SOLICITUDCAMBIO>()
-                .Property(e => e.TIPO_CAMBIO)
-                .IsUnicode(false);
 
             modelBuilder.Entity<TIPO_USUARIO>()
                 .Property(e => e.DESCRIPCION)

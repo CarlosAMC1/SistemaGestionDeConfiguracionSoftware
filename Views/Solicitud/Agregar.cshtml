@@ -1,0 +1,90 @@
+﻿@model SistemaGestionDeConfiguracionSoftware.Models.SOLICITUDCAMBIO
+@{
+    ViewBag.Title = "Agregar";
+
+    List<SistemaGestionDeConfiguracionSoftware.Models.SOLICITUDCAMBIO> tiposol = ViewBag.TipoSolicitud;
+    List<SistemaGestionDeConfiguracionSoftware.Models.PROYECTO> proyecto = ViewBag.Proyecto;
+
+    List<SistemaGestionDeConfiguracionSoftware.Models.USUARIO> usuario = ViewBag.Usuario;
+
+
+}
+
+
+
+<nav class="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="~/Solicitud_Cambios/Index">Solicitud de Cambios</a></li>
+
+    </ol>
+</nav>
+
+@using (Html.BeginForm("Guardar", "Solicitud", FormMethod.Post, new { id = "frm-categoria" }))
+{
+    @Html.HiddenFor(x => x.ID_SOLICITUD)
+    <div class="card">
+        <div class="card-header">Informacion del Proyecto</div>
+        <div class="card-body">
+
+
+            <div class="form-group">
+                @Html.LabelFor(x => x.FECHA_INICIO)
+                @Html.TextBoxFor(x => x.FECHA_INICIO, new { @type = "date", @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.FECHA_INICIO, null, new { @class = "label label-danger" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(x => x.FECHA_FIN)
+                @Html.TextBoxFor(x => x.FECHA_FIN, new { @type = "date", @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.FECHA_FIN, null, new { @class = "label label-danger" })
+            </div>
+       
+            <div class="form-group">
+                @Html.LabelFor(x => x.DESCRIPCION)
+                @Html.TextBoxFor(x => x.DESCRIPCION, new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.DESCRIPCION, null, new { @class = "label label-danger" })
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group">
+                  @Html.Label("Proyecto")
+                    <select name="ID_Proyecto" id="ID_Proyecto" class="form-control">
+
+                        <option value="@Model.ID_Proyecto">Proyecto de prueba inicial</option>
+                        <option value="@Model.ID_Proyecto">asd editar</option>
+                        <option value="@Model.ID_Proyecto">Gestion de la configuracionr</option>
+                        <option value="@Model.ID_Proyecto">Proyecto Construccion 1</option>
+                        <option value="@Model.ID_Proyecto">Proyecto Web2 </option>
+                        <option value="@Model.ID_Proyecto">proyecto01</option>
+ 
+
+                    </select>
+                </div>
+            </div>
+
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    @Html.Label("Responsable de cambio")
+                    <select name="ID_MIEMBRO" id="ID_MIEMBRO" class="form-control">
+
+                        <option value="@Model.ID_MIEMBRO">Carlos</option>
+                        <option value="@Model.ID_MIEMBRO">Rodrigo</option>
+                        <option value="@Model.ID_MIEMBRO">Alfredo</option>
+
+                    </select>
+                </div>
+            </div>
+
+
+
+        </div>
+
+        <div class="text-right">
+            <button type="submit" class="btn btn-primary">Guardar</button>
+            <a href="~/Solicitud_Cambios" class="btn btn-danger">Cancelar</a>
+        </div>
+        <br /><br /><br />
+
+
+    </div>
+}
