@@ -4,15 +4,23 @@
     ViewBag.Title = "Create";
     Layout = "~/Views/Shared/Layout.cshtml";
 }
-
-<h2>Create</h2>
+<nav class="nav">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a href="~/TAREAs/Index">Tareas</a>
+        </li>
+        <li class="breadcrumb-item active">
+            <label>Crear</label>
+        </li>
+    </ol>
+</nav>
+<h4 class="modal-title">CREAR NUEVA TAREA</h4>
 
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>TAREA</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
@@ -41,12 +49,8 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="AGREGAR TAREA" class="btn btn-primary" />
             </div>
         </div>
     </div>
 }
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
